@@ -1,0 +1,58 @@
+@import "../../../GlobalStyles/mixin";
+
+.wrapper {
+  margin-top: 64px;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h4 {
+      font-size: 3rem;
+      text-transform: uppercase;
+
+      @media (max-width: 76.8rem) {
+        font-size: 2rem;
+      }
+    }
+
+    span {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    button, a {
+        padding: 8px 16px;
+        height: 40px;
+        font-weight: 600;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        @media (max-width: 76.8rem) {
+          font-size: 1.6rem;
+          padding: 4px 8px;
+          margin-left: 12px;
+          flex-shrink: 0;
+        }
+    }
+
+    .see-more {
+      @include borderBtn(var(--primary-color));
+    }
+
+    .delete-all {
+        @include outlineBtn(var(--red-color))
+    }
+  }
+
+  .list {
+    display: flex;
+    margin: 0 -8px;
+    flex-wrap: wrap;
+    gap: 24px 0;
+  }
+}

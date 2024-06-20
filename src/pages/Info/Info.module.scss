@@ -1,0 +1,213 @@
+@import "../../components/GlobalStyles/mixin";
+
+.wrapper {
+  .top {
+    display: flex;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    figure {
+      flex-shrink: 0;
+      width: 200px;
+      height: 300px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border-radius: var(--border-radius-img);
+
+      @media (max-width: 768px) {
+        width: 100%;
+        height: 500px;
+      }
+    }
+
+    .info {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-left: 32px;
+
+      @media (max-width: 768px) {
+        padding-left: unset;
+        overflow: unset;
+        gap: 8px;
+      }
+
+      h4 {
+        font-size: 3rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        @media (max-width: 768px) {
+          margin-top: 12px;
+          font-size: 2.4rem;
+          overflow: unset;
+          white-space: unset;
+          text-overflow: unset;
+        }
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+
+        button {
+          padding: 6px 12px;
+          font-size: 1.8rem;
+
+          i {
+            margin-right: 8px;
+          }
+        }
+
+        .save {
+          @include outlineBtn(var(--primary-color));
+        }
+
+        .delete {
+          @include outlineBtn(var(--red-color));
+        }
+
+        .continue {
+          @include outlineBtn(var(--blue-color));
+        }
+      }
+
+      .item {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+
+        li,
+        span,
+        p {
+          font-size: 1.8rem;
+          font-weight: 400;
+          color: var(--black-color);
+        }
+
+        > b {
+          font-size: 2rem;
+          font-weight: 600;
+          color: var(--primary-color);
+          white-space: nowrap;
+        }
+      }
+
+      .item:last-child {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: unset;
+      }
+
+      .category {
+        font-size: 1.6rem;
+        cursor: pointer;
+
+        a {
+          display: block;
+          padding: 2px 8px;
+          margin-bottom: 3px;
+          @include outlineBtn(var(--primary-color));
+        }
+      }
+    }
+  }
+
+  .chapter-wrapper {
+    margin-top: 32px;
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h4 {
+        font-size: 3rem;
+      }
+
+      .btn-sort {
+        position: relative;
+        font-size: 1.8rem;
+        padding: 8px 16px;
+        @include outlineBtn(var(--primary-color));
+        @include label('Sắp xếp chương', -100%, -100%);
+      }
+    }
+
+    .search-chapter {
+      margin: 12px 0 24px 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 0 12px;
+      border-radius: var(--border-radius);
+      border: 2px solid #e7e7e7;
+      transition: 0.3s;
+
+      &:focus-within {
+        border-color: var(--primary-color);
+      }
+
+      input {
+        width: 100%;
+        height: 40px;
+        padding-left: 12px;
+        font-size: 1.6rem;
+        border: none;
+        outline: none;
+        background-color: inherit;
+        color: inherit;
+      }
+    }
+
+    .chapters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      span {
+        color: var(--red-color);
+        font-weight: 600;
+        margin: 8px 0;
+      }
+
+      li {
+        width: var(--width-chapter-desktops);
+        @include outlineBtn(var(--primary-color));
+
+        @media (max-width: 1023px) {
+          width: var(--width-chapter-table);
+        }
+        @media (max-width: 768px) {
+          width: var(--width-chapter-mobile);
+        }
+
+        a {
+          text-align: center;
+          display: block;
+          font-size: 1.6rem;
+          padding: 8px;
+
+          @media (max-width: 768px) {
+            font-size: 1.4rem;
+            padding: 2px;
+            margin-bottom: 2px;
+          }
+        }
+      }
+
+      li.active {
+        background-color: rgba(16, 185, 129, 0.7) !important;
+        position: relative;
+        @include label("Đã đọc qua", -100%);
+      }
+    }
+  }
+}

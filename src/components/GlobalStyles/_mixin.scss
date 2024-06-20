@@ -1,0 +1,78 @@
+@mixin borderBtn($color: var(--primary-color)) {
+  border: 3px solid $color;
+  background-color: var(--white-color) !important;
+  color: $color !important;
+  transition: 0.3s;
+  outline: 3px solid transparent;
+  outline-offset: 3px;
+  border-radius: var(--border-radius);
+  user-select: none;
+
+  &:hover {
+    background-color: $color !important;
+    color: var(--white-color) !important;
+    outline-color: $color !important;
+
+    @media (max-width: 768px) {
+      outline: unset !important;
+    }
+  }
+}
+
+@mixin outlineBtn($color: var(--primary-color)) {
+  outline: 3px solid transparent;
+  outline-offset: 3px;
+  transition: 0.3s;
+  user-select: none;
+  border-radius: var(--border-radius);
+  color: var(--white-color) !important;
+  background-color: $color !important;
+
+  @if $color == "var(--white-color)" {
+    color: var(--black-color) !important;
+    background-color: $color !important;
+  }
+
+  &:hover {
+    outline-color: $color !important;
+
+    @media (max-width: 768px) {
+      outline: unset;
+    }
+  }
+}
+
+@mixin disabledBtn() {
+  opacity: 0.5;
+  cursor: no-drop;
+  pointer-events: none;
+}
+
+@mixin label($content, $top, $left: 0) {
+  &:hover ::after {
+    opacity: 1;
+  }
+
+  ::after {
+    opacity: 0;
+    content: $content;
+    pointer-events: none;
+    position: absolute;
+    top: $top;
+    white-space: nowrap;
+    left: $left;
+    background-color: #3f3f3f;
+    border-radius: var(--border-radius);
+    color: var(--white-color);
+    padding: 4px 8px;
+    transition: 0.3s;
+    font-size: 1.6rem;
+    font-weight: 400;
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
+  }
+}

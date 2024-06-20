@@ -1,0 +1,187 @@
+@import "../../components/GlobalStyles/mixin";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+
+    h4 {
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    p {
+      color: inherit;
+      font-weight: 600;
+      text-align: center;
+      i {
+        margin: 0 8px;
+      }
+    }
+
+    span {
+        text-align: center;
+        color: var(--red-color);
+        font-weight: 600;
+
+        a { 
+            margin-left: 12px;
+            text-decoration: underline;
+        }
+    }
+  }
+  .actions {
+    position: sticky;
+    top: 70px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 64px;
+
+    button {
+      padding: 8px 16px;
+      @include outlineBtn(var(--primary-color));
+      font-size: 1.8rem;
+      min-width: 120px;
+    }
+
+    button.disabled {
+      opacity: 0.5;
+      cursor: no-drop;
+      pointer-events: none;
+    }
+
+    .prev {
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
+
+      i {
+        margin-right: 12px;
+      }
+    }
+
+    .next {
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+
+      i {
+        margin-left: 12px;
+      }
+    }
+  }
+
+  .images {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      width: 800px;
+      height: 100%;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+  }
+
+  .tools {
+    position: fixed;
+    max-height: 100px;
+    max-width: 200px;
+    min-width: 50px;
+    right: var(--pos-desktops);
+    bottom: var(--pos-desktops);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (max-width: 768px) {
+      flex-direction: unset;
+      top: unset;
+      bottom: var(--pos-mobile);
+      right: var(--pos-mobile);
+    }
+
+    button {
+      padding: 8px;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include borderBtn(var(--primary-color));
+
+      @media (max-width: 768px) {
+        padding: 8px 12px;
+      }
+
+      span {
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+
+      i {
+        margin-right: 8px;
+
+        @media (max-width: 768px) {
+          margin: unset;
+        }
+      }
+    }
+
+    .auto-scroll {
+      position: relative;
+      transition: 0.3s;
+
+      &:hover::after {
+        opacity: 1;
+      }
+
+      &::after {
+        content: "Tự động cuộn sau 6 giây";
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 100%;
+        top: calc(100% + 12px);
+        white-space: nowrap;
+        left: 0;
+        background-color: #3f3f3f;
+        border-radius: var(--border-radius);
+        color: var(--white-color);
+        padding: 4px 8px;
+        transition: 0.3s;
+        font-size: 1.6rem;
+
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+    }
+
+    button.active {
+      color: var(--white-color) !important;
+      background-color: var(--primary-color) !important;
+      animation: bounce 2s infinite;
+    }
+  }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(10px);
+    }
+    60% {
+        transform: translateY(5px);
+    }
+}

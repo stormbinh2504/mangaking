@@ -1,0 +1,29 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  min-width: 100px;
+  max-width: 100%;
+  position: relative;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+  li {
+    font-size: 1.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+
+    a {
+      :hover {
+        text-decoration: underline;
+      }
+    }
+
+    i {
+      margin: 8px;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@import "../../../GlobalStyles/mixin";
+
+.wrapper {
+  position: relative;
+
+  .wrapper-inner {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--border-radius-img);
+
+    .actions {
+      display: flex;
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      gap: 12px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+
+      .left,
+      .right {
+        padding: 8px 14px;
+        font-size: 2rem;
+        border-radius: 50% !important;
+        @include outlineBtn(rgb(63, 63, 63));
+      }
+    }
+
+    .inner {
+      display: flex;
+      transition: 0.8s ease;
+    }
+  }
+
+  .slick-dots {
+    display: flex;
+    gap: 12px;
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+
+    li {
+      width: 32px;
+      height: 8px;
+      border-radius: var(--border-radius);
+      background-color: #dce0e3;
+      transition: 0.3s;
+      cursor: pointer;
+
+      @media (max-width: 768px) {
+        width: 18px;
+      }
+    }
+
+    li.active {
+      width: 50px;
+      background-color: #9aa6af;
+
+      @media (max-width: 768px) {
+        width: 32px;
+      }
+    }
+  }
+}

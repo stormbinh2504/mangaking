@@ -1,0 +1,59 @@
+@import "../../../GlobalStyles/mixin";
+
+.wrapper {
+  margin-top: 32px;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -32px;
+
+    h4 {
+      flex-shrink: 0;
+      font-size: 3rem;
+      margin-right: 24px;
+
+      @media (max-width: 768px) {
+        font-size: 1.8rem;
+      }
+    }
+
+    .categorys {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+
+      @media (max-width: 768px) {
+        gap: 8px;
+      }
+
+      li {
+        flex: auto;
+        @include borderBtn(var(--primary-color));
+        padding: 2px 4px;
+        height: 30px;
+        font-weight: 600;
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        @media (max-width: 768px) {
+          font-size: 1.4rem;
+        }
+      }
+
+      li.active {
+        color: var(--white-color) !important;
+        outline-color: var(--primary-color) !important;
+        background-color: var(--primary-color) !important;
+
+        @media (max-width: 768px) {
+          outline: unset;
+        }
+      }
+    }
+  }
+}

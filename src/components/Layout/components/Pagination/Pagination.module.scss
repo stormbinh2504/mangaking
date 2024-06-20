@@ -1,0 +1,65 @@
+@import "../../../GlobalStyles/mixin";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+
+  button {
+    border-radius: 8px !important;
+    padding: 8px 16px;
+    font-size: 2rem;
+    @include outlineBtn(var(--primary-color));
+
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+      padding: 12px;
+    }
+  }
+
+  button.disabled {
+    opacity: 0.5;
+    cursor: no-drop;
+    pointer-events: none;
+  }
+
+  .pagination {
+    display: flex;
+    gap: 12px;
+
+    li {
+      border-radius: 8px !important;
+      @include borderBtn(var(--primary-color));
+      padding: 8px 16px;
+      height: 40px;
+      font-weight: 600;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+
+      @media (max-width: 768px) {
+        font-size: 1.6rem;
+        padding: 4px 12px;
+      }
+    }
+
+    li.active {
+      color: var(--white-color) !important;
+      background-color: var(--primary-color) !important;
+      outline-color: var(--primary-color) !important;
+
+      @media (max-width: 768px) {
+        outline: unset;
+      }
+    }
+  }
+}
