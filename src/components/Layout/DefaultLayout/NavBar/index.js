@@ -51,7 +51,7 @@ function NavBar() {
                     <NavLink to='/'>
                         <img src={logo} alt='logo' />
                     </NavLink>
-                    <h4>PHOMANGA</h4>
+                    <h4>MANGAKING</h4>
                 </div>
                 {!isMobile &&
                     <ul className={cx('list')}>
@@ -61,8 +61,8 @@ function NavBar() {
                                 Trang chủ
                             </NavLink>
                         </li>
-                        <li 
-                            className={cx('item', 
+                        <li
+                            className={cx('item',
                                 { 'active': pathname === '/detail/danh-sach/truyen-moi' })}>
                             <NavLink to='/detail/danh-sach/truyen-moi'>
                                 <i className="fa-solid fa-rotate"></i>
@@ -116,7 +116,7 @@ function NavBar() {
                             onKeyDown={(e) => handleKeyDownSearch(e, valueSearch)}
                         />
                         <NavLink
-                            style={{pointerEvents: valueSearch !== '' ? 'auto' : 'none'}} 
+                            style={{ pointerEvents: valueSearch !== '' ? 'auto' : 'none' }}
                             to={`/search/${valueSearch}`}>
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </NavLink>
